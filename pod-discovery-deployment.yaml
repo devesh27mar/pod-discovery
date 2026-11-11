@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: pod-discovery
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: pod-discovery
+
+  template:
+    metadata:
+      labels:
+        app: pod-discovery
+
+    spec:
+      containers:
+      - name: pod-discovery
+        image: pod-discovery:1.0
+
+        ports:
+        - containerPort: 8082
